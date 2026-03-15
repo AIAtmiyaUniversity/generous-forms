@@ -62,20 +62,30 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-ample-dark text-primary-foreground py-2 text-sm hidden lg:block">
-        <div className="container mx-auto flex justify-between items-center px-6">
-          <div className="flex items-center gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-2 text-ample-silver hover:text-primary-foreground transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              <span>+91 98765 43210</span>
-            </a>
-            <a href="mailto:info@ampleextrusion.com" className="flex items-center gap-2 text-ample-silver hover:text-primary-foreground transition-colors">
-              <Mail className="w-3.5 h-3.5" />
-              <span>info@ampleextrusion.com</span>
-            </a>
-          </div>
-          <span className="text-ample-silver">Quality Is Not An Art, It Is A Habit</span>
+      {/* Price ticker top bar */}
+      <div className="bg-ample-dark text-primary-foreground py-1.5 text-xs hidden lg:block overflow-hidden">
+        <div className="relative">
+          <motion.div
+            className="flex gap-10 whitespace-nowrap"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          >
+            {[...aluminiumPrices, ...aluminiumPrices].map((item, i) => {
+              const TrendIcon = item.trend === "up" ? TrendingUp : item.trend === "down" ? TrendingDown : Minus;
+              const trendColor = item.trend === "up" ? "text-green-400" : item.trend === "down" ? "text-red-400" : "text-ample-silver";
+              return (
+                <span key={i} className="inline-flex items-center gap-2">
+                  <span className="text-ample-silver font-medium">{item.label}</span>
+                  <span className="text-primary-foreground font-semibold">{item.price}/MT</span>
+                  <span className={`inline-flex items-center gap-0.5 ${trendColor}`}>
+                    <TrendIcon className="w-3 h-3" />
+                    {item.change}
+                  </span>
+                  <span className="text-ample-silver/30 ml-4">│</span>
+                </span>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
 
