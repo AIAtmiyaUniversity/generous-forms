@@ -99,7 +99,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <Link to="/" className="flex-shrink-0">
-            <img src={logo} alt="Ample Extrusion" className="h-12 md:h-14" />
+            <img src={logo} alt="Ample Extrusion" className="h-9 md:h-10" />
           </Link>
 
           {/* Desktop nav */}
