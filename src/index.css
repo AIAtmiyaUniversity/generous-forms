@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,48 +6,53 @@
 
 @layer base {
   :root {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 96%;
+    --background: 0 0% 100%;
+    --foreground: 210 20% 12%;
 
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 12%;
 
-    --popover: 0 0% 14%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 12%;
 
-    --primary: 25 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 202 100% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 210 20% 12%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 25 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 202 100% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 25 100% 50%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 202 100% 40%;
 
-    --radius: 0px;
+    --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 25 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 18%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 25 100% 50%;
+    /* Custom Ample tokens */
+    --ample-blue: 202 100% 40%;
+    --ample-blue-light: 202 80% 55%;
+    --ample-blue-dark: 210 80% 28%;
+    --ample-silver: 210 5% 65%;
+    --ample-dark: 210 25% 8%;
+    --ample-gray: 210 10% 40%;
+    --ample-light: 210 20% 97%;
 
-    --metal-silver: 0 0% 78%;
-    --metal-dark: 0 0% 35%;
-    --obsidian: 0 0% 8%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 202 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 95%;
+    --sidebar-accent-foreground: 210 20% 12%;
+    --sidebar-border: 210 15% 90%;
+    --sidebar-ring: 202 100% 40%;
   }
 }
 
@@ -59,37 +64,70 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: "tnum", "ss01";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: -0.04em;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 @layer utilities {
-  .font-mono-display {
-    font-family: 'JetBrains Mono', monospace;
-    font-feature-settings: "tnum", "ss01";
+  .text-gradient-blue {
+    background: linear-gradient(135deg, hsl(202, 100%, 40%), hsl(202, 80%, 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .font-data {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, hsl(202, 100%, 40%), hsl(210, 80%, 28%));
   }
 
-  .shadow-industrial {
-    box-shadow: 4px 4px 0px 0px hsl(var(--border));
+  .bg-gradient-blue-light {
+    background: linear-gradient(135deg, hsl(202, 100%, 40%), hsl(202, 80%, 55%));
   }
 
-  .shadow-industrial-accent {
-    box-shadow: 4px 4px 0px 0px hsl(var(--primary));
+  .bg-ample-dark {
+    background-color: hsl(210, 25%, 8%);
   }
 
-  .grain-texture {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  .text-ample-silver {
+    color: hsl(210, 5%, 65%);
   }
+
+  .bg-ample-light {
+    background-color: hsl(210, 20%, 97%);
+  }
+
+  .shadow-blue {
+    box-shadow: 0 4px 30px -5px hsl(202 100% 40% / 0.25);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 20px 40px -15px hsl(210 25% 8% / 0.12);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
