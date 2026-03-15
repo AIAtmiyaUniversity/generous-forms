@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowUpRight, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-ample.png";
+
+const aluminiumPrices = [
+  { label: "Aluminium (LME)", price: "₹2,38,500", change: "+1.2%", trend: "up" as const },
+  { label: "Aluminium Alloy", price: "₹2,42,800", change: "+0.8%", trend: "up" as const },
+  { label: "Aluminium Ingot", price: "₹2,35,200", change: "-0.3%", trend: "down" as const },
+  { label: "Billets 6063", price: "₹2,55,000", change: "+1.5%", trend: "up" as const },
+  { label: "Billets 6061", price: "₹2,60,500", change: "0.0%", trend: "neutral" as const },
+  { label: "Primary Aluminium", price: "₹2,40,100", change: "+0.6%", trend: "up" as const },
+];
 
 const navItems = [
   { label: "Home", href: "/" },
